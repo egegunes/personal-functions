@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Location</title>
+    </head>
+    <body>
+        <button onclick="getLocation()">Get Location</button>
+        <form method="POST">
+            <input type="text" id="longitude" name="longitude" placeholder="Longitude" />
+            <input type="text" id="latitude" name="latitude" placeholder="Latitude" />
+            <input type="text" name="description" placeholder="Description" />
+            <input type="submit" value="Submit" />
+        </form>
+        <script>
+            function showPosition(position) {
+                document.getElementById("longitude").value = position.coords.longitude;
+                document.getElementById("latitude").value = position.coords.latitude;
+            }
+
+            function getLocation() {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+        </script>
+    </body>
+</html>
